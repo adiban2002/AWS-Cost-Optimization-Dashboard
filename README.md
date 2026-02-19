@@ -143,7 +143,7 @@ TARGET_REGIONS=ap-south-1,eu-central-1,sa-east-1
 
 S3_BUCKET_NAME=cost-optimization-mumbai-aditya
 
-SNS_TOPIC_ARN=arn:aws:sns:ap-south-1:XXXXXXXXXXXX:cost-optimization-alerts
+SNS_TOPIC_ARN=arn:aws:sns:ap-south-1:800557028391:cost-optimization-alerts
 
 
 AWS credentials are securely mounted inside Docker:
@@ -252,7 +252,7 @@ Focused on AWS • DevOps •FinOps • Intelligent Automation
 
 ## 📜 License
 
-Educational / Research Use.
+MIT License
 
 ----------------------------------------------------------------------------
 
