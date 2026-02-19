@@ -1,0 +1,25 @@
+services:
+  cost-optimizer:
+    build: .
+    container_name: cost-optimizer
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ~/.aws:/root/.aws:ro
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    depends_on:
+      - cost-optimizer
+    restart: unless-stopped
+
+volumes:
+  grafana-storage:

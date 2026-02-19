@@ -1,0 +1,26 @@
+# AWS SDK
+boto3
+botocore
+
+# Data Processing
+pandas
+numpy
+
+# Visualization / Dashboard Backend
+matplotlib
+seaborn
+
+# API Layer
+fastapi
+uvicorn
+
+# Alerts & Automation
+schedule
+requests
+
+# Configuration & Utilities
+python-dotenv
+pydantic
+
+# Optional(for Grafana / metrics)
+prometheus-client
