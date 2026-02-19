@@ -136,14 +136,14 @@ AWS-Cost-Optimization-Dashboard/
 
 Create a `.env` file:
 
-
 AWS_REGION=ap-south-1
 
 TARGET_REGIONS=ap-south-1,eu-central-1,sa-east-1
 
-S3_BUCKET_NAME=cost-optimization-mumbai-aditya
+S3_BUCKET_NAME=your-s3-bucket-name
 
-SNS_TOPIC_ARN=arn:aws:sns:ap-south-1:800557028391:cost-optimization-alerts
+SNS_TOPIC_ARN=arn:aws:sns:<region>:<your-account-id>:cost-optimization-alerts
+
 
 
 AWS credentials are securely mounted inside Docker:
