@@ -1,9 +1,3 @@
-"""
-fastapi_app.py
-
-API layer exposing AWS Cost Optimization Engine.
-"""
-
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 
@@ -61,9 +55,6 @@ def get_full_report():
 
 @app.get("/summary")
 def get_summary():
-    """
-    Lightweight summary for dashboard stat panels
-    """
     detector = IdleResourceDetector()
     rightsizer = RightsizingAnalyzer()
     estimator = SavingsEstimator()
@@ -79,10 +70,6 @@ def get_summary():
         if "estimated_savings" in savings_df.columns else 0.0
     }
 
-# ------------------------------------------------------------------
-# ✅ GRAFANA-SPECIFIC ENDPOINTS (Flat JSON format for visualization)
-# These DO NOT affect your main API — only used by Grafana dashboards.
-# ------------------------------------------------------------------
 
 @app.get("/grafana/idle")
 def grafana_idle():

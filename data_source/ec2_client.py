@@ -8,14 +8,10 @@ load_dotenv()
 
 class EC2Client:
     def __init__(self):
-        # Read regions from environment
         regions_env = os.getenv("TARGET_REGIONS", "ap-south-1")
         self.regions = [r.strip() for r in regions_env.split(",")]
 
     def list_instances(self):
-        """
-        Fetch instances from ALL configured regions
-        """
         all_instances = []
 
         for region in self.regions:
@@ -36,9 +32,6 @@ class EC2Client:
         return all_instances
 
     def get_average_cpu_utilization(self, instance_id, region):
-        """
-        Fetch CPU utilization from the SAME region where instance exists
-        """
         cloudwatch = boto3.client("cloudwatch", region_name=region)
 
         end_time = datetime.now(timezone.utc)

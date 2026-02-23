@@ -1,21 +1,10 @@
-"""
-rightsizing.py
-
-Analyzes EC2 utilization to recommend instance resizing
-based on CPU usage patterns.
-"""
-
 import pandas as pd
 from data_processing import DataPreprocessor
 
 
 class RightsizingAnalyzer:
-    """
-    Provides rightsizing recommendations for running instances.
-    """
-
-    LOWER_BOUND = 20   # % CPU
-    UPPER_BOUND = 60   # % CPU
+    LOWER_BOUND = 20   
+    UPPER_BOUND = 60  
 
     def __init__(self):
         self.processor = DataPreprocessor()
@@ -31,7 +20,7 @@ class RightsizingAnalyzer:
             cpu = row["avg_cpu_percent"]
 
             if state != "running":
-                continue  # Rightsizing only applies to running instances
+                continue  
 
             if cpu < self.LOWER_BOUND:
                 action = "Downsize Instance"
@@ -54,10 +43,7 @@ class RightsizingAnalyzer:
 
         df = pd.DataFrame(recommendations)
 
-        # ------------------------------------------------------------------
-        # Fallback for environments with no running instances
-        # (ensures dashboard always shows meaningful output)
-        # ------------------------------------------------------------------
+
         if df.empty:
             df = pd.DataFrame([{
                 "instance_id": "demo-instance",
@@ -69,9 +55,6 @@ class RightsizingAnalyzer:
         return df
 
 
-# ------------------------------------------------------------------
-# Local test
-# ------------------------------------------------------------------
 if __name__ == "__main__":
     analyzer = RightsizingAnalyzer()
     result = analyzer.analyze()

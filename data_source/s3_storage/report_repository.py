@@ -4,9 +4,6 @@ from .s3_client import upload_file_to_s3
 
 
 def save_cost_report(report_data: dict):
-    """
-    Saves processed cost optimization report to S3
-    """
 
     today = datetime.now().strftime("%Y-%m-%d")
     object_key = f"reports/{today}/cost_report.json"

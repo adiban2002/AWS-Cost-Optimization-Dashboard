@@ -2,18 +2,11 @@ from .notifier import AlertNotifier
 
 
 class BudgetMonitor:
-    """
-    Evaluates cost data and triggers alerts if thresholds exceeded
-    """
-
     def __init__(self, threshold_amount=100):
         self.threshold = threshold_amount
         self.notifier = AlertNotifier()
 
     def evaluate_cost(self, total_cost, region):
-        """
-        Check if cost exceeds threshold
-        """
         if total_cost > self.threshold:
             subject = "Budget Threshold Exceeded"
 
